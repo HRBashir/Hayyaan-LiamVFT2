@@ -1,0 +1,115 @@
+%% Variables
+u = 0.004;       % dynamic viscosity (Pa.s)
+vm = 0.1;        % blood velocity (m/s)
+y = 0.006;       % distance from the centre (m)
+r1 = 0.012;      % radius of aorta (m)
+r2 = 0.024;
+r3 = 0.036;
+r4 = 0.048;
+r5 = 0.060;
+r6 = 0.072;
+r7 = 0.084;
+r8 = 0.096;
+r9 = 0.108;
+r10 = 0.120;
+r11 = 0.132;
+r12 = 0.144;
+r13 = 0.156;
+r14 = 0.168;
+r15 = 0.180;
+r16 = 0.192;
+r17 = 0.204;
+r18 = 0.216;
+r19 = 0.228;
+r20 = 0.240;
+
+%Dynamic viscosity is the measure of resistance to flow when an external
+%force is applied. In this case it is the wall shear stress' extertion of
+%force onto the blood. It is measured as between 3.5 and 5.5 centiPoise
+%from literature. So 4cP is the typical value used. This converts to
+%0.004Pa.s
+
+%Mean blood velocity is taken as 10cm/s which is 0.1m/s
+
+%We took the intitial radius as 0.012m 
+
+%The 'y' value or the distance from the centre of the vessel was taken as
+%half the initial radius, 0.006m
+
+
+Calculation
+WSS1 = -(2*u*vm*y) / (r1^2)   % value for WSS (Pa)
+WSS2 = -(2*u*vm*y) / (r2^2)   % value for WSS (Pa)
+WSS3 = -(2*u*vm*y) / (r3^2)   % value for WSS (Pa)
+WSS4 = -(2*u*vm*y) / (r4^2)   % value for WSS (Pa)
+WSS5 = -(2*u*vm*y) / (r5^2) 
+WSS6 = -(2*u*vm*y) / (r6^2) 
+WSS7 = -(2*u*vm*y) / (r7^2) 
+WSS8 = -(2*u*vm*y) / (r8^2) 
+WSS9 = -(2*u*vm*y) / (r9^2) 
+WSS10 = -(2*u*vm*y) / (r10^2) 
+WSS11 = -(2*u*vm*y) / (r11^2) 
+WSS12 = -(2*u*vm*y) / (r12^2) 
+WSS13 = -(2*u*vm*y) / (r13^2) 
+WSS14 = -(2*u*vm*y) / (r14^2) 
+WSS15 = -(2*u*vm*y) / (r15^2) 
+WSS16 = -(2*u*vm*y) / (r16^2) 
+WSS17 = -(2*u*vm*y) / (r17^2) 
+WSS18 = -(2*u*vm*y) / (r18^2) 
+WSS19 = -(2*u*vm*y) / (r19^2) 
+WSS20 = -(2*u*vm*y) / (r20^2) 
+
+y = [WSS1 WSS2 WSS3 WSS4 WSS5 WSS6 WSS7 WSS8 WSS9 WSS10 WSS11 WSS12 WSS13 WSS14 WSS15 WSS16 WSS17 WSS18 WSS19 WSS20];
+x = [r1 r2 r3 r4 r5 r6 r7 r8 r9 r10 r11 r12 r13 r14 r15 r16 r17 r18 r19 r20];
+%% Graph 
+figure; plot(x,y)
+title('Radius vs WSS');
+xlabel('Radius (m)')
+ylabel('WSS (Pa)')
+
+%We can see that as the radius increases, the WSS decreases to zero. This is as we
+%move further away from the centre of the vessel and to the walls, the WSS
+%is least at the walls. This is as velocity is almost zero at the walls.
+%Due to the parabolic, laminar flow velocity profile.
+
+%WSS vs Elasticity
+%Variables
+Eelastin=3e-5
+Ecollagen=1e8
+Esmoothmuscle=2e6
+lo=0.01
+dl=0.02
+
+WSSelastin=(Eelastin)*(0.01/0.1)
+WSScollagen=(Ecollagen)*(0.01/0.1)
+WSSsmoothmuscle=(Esmoothmuscle)*(0.01/0.1)
+
+y=[WSSelastin WSScollagen WSSsmoothmuscle]
+x=[Eelastin Ecollagen Esmoothmuscle]
+
+figure; plot(x,y)
+title('Elasticity vs WSS');
+xlabel('Elasticity (Pa)')
+ylabel('WSS (Pa)')
+
+%There is a directly proportional relationship between WSS and elasticity.
+%As the youngs modulus of the vessel increases, as does the wall shear
+%stress.
+
+%WSS vs Flow
+%Variables
+Qcardiaccycle=0.09375
+u= 0.004
+r=0.012
+
+WSSFlow=(4*u*Qcardiaccycle)/(3.14*r^3)
+
+y=WSSFlow
+x=Qcardiaccycle
+
+figure; plot(x,y)
+title('Flow vs WSS');
+xlabel('Flow (L/min)')
+ylabel('WSS (Pa)')
+
+
