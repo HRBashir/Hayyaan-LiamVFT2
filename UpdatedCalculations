@@ -98,17 +98,19 @@ ylabel('WSS (Pa)')
 
 %WSS vs Flow
 %Variables
-Qcardiaccycle=0.09375
+Qsystole=0.003
+Qdiastole=0.026
 u= 0.004
 r=0.012
 
-WSSFlow=(4*u*Qcardiaccycle)/(3.14*r^3)
+WSSsystole=(4*u*Qsystole)/(3.14*r^3)
+WSSdiastole=(4*u*Qdiastole)/(3.14*r^3)
 
-y=WSSFlow
-x=Qcardiaccycle
+y=[WSSsystole WSSdiastole]
+x=[Qsystole Qdiastole]
 
 figure; plot(x,y)
-title('Flow vs WSS');
+title('Flow Rate in Systole and Diastole vs WSS');
 xlabel('Flow (L/min)')
 ylabel('WSS (Pa)')
 
