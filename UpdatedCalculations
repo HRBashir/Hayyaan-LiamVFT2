@@ -73,12 +73,13 @@ ylabel('WSS (Pa)')
 %Due to the parabolic, laminar flow velocity profile.
 
 %WSS vs Elasticity
+%Blood vessels are composed of 3 main parts. Elastin, collagen and smooth muscle. How much of each part a vessel is composed of varies.
 %Variables
-Eelastin=3e-5
+Eelastin=3e-5 %Elastic Modulus [N/m^2]
 Ecollagen=1e8
 Esmoothmuscle=2e6
-lo=0.01
-dl=0.02
+lo=0.01 %Initial Length [m]
+dl=0.02 %Change in Length [m]
 
 WSSelastin=(Eelastin)*(0.01/0.1)
 WSScollagen=(Ecollagen)*(0.01/0.1)
@@ -98,10 +99,12 @@ ylabel('WSS (Pa)')
 
 %WSS vs Flow
 %Variables
-Qsystole=0.003
-Qdiastole=0.026
-u= 0.004
-r=0.012
+Qsystole=0.003 %Flow rate at systole [L/min]
+Qdiastole=0.026 %Flow rate at diastole [L/min]
+u= 0.004 %dynamic viscosity [Pa.s]
+r=0.012 %radius [m]
+
+%As there is differing flow rates depending on the stage of cardiac cycle, flow rate values were taken from systole and diastole.
 
 WSSsystole=(4*u*Qsystole)/(3.14*r^3)
 WSSdiastole=(4*u*Qdiastole)/(3.14*r^3)
