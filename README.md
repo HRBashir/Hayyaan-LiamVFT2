@@ -1,2 +1,2 @@
 # Hayyaan-LiamVFT2
-testing
+We were tasked with finding error in the measurement of wall shear stress in blood vessels. Firstly we started out by graphing the various relatinships WSS has with the other physiological parameters such as radius, eleasticity and flow rate. All of these factors serve to affect the overall wall shear stress of the blood vessel. In some cases this can adversely affect the vessel, so proper measurement of these parameters against WSS and finding error are important.
