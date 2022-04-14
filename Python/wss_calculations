@@ -1,0 +1,67 @@
+import numpy as np
+from sympy.interactive import printing
+import matplotlib.pyplot as plt
+from matplotlib.widgets import Slider, Button
+
+# variables
+u = 0.0004
+vm = 0.1
+y = 0.006
+E_elastin=3e-5
+E_collagen=1e8
+E_smooth_muscle=2e6
+lo=0.01
+dl=0.02
+
+r1 = 0.012
+r2 = 0.018
+r3 = 0.024
+r4 = 0.030
+r5 = 0.036
+r6 = 0.048
+
+# WSS calculation
+def wss_calc(r_value):
+    return -(2*u*vm*y) / (r_value**2)
+
+wss_1 = wss_calc((r1))
+wss_2 = wss_calc((r2))
+wss_3 = wss_calc((r3))
+wss_4 = wss_calc((r4))
+wss_5 = wss_calc((r5))
+wss_6 = wss_calc((r6))
+
+wss_array = [wss_1, wss_2, wss_3, wss_4, wss_5, wss_6]
+radius_array = [r1, r2, r3, r4, r5, r6]
+
+# elasticity calculation
+def wss_elastic_calc(fiber):
+    return (fiber) * (0.01/0.1)
+
+wss_elastin = wss_elastic_calc((E_elastin))
+wss_collagen = wss_elastic_calc((E_collagen))
+wss_smooth_muscle = wss_elastic_calc((E_smooth_muscle))
+
+fiber_elastic_array = [E_elastin, E_collagen, E_smooth_muscle]
+fiber_wss_array = [wss_elastin, wss_collagen, wss_smooth_muscle]
+
+
+# WSS calculation plotting
+plt.figure()
+plt.plot(radius_array, wss_array)
+
+plt.xlabel('RADIUS (m)')
+plt.ylabel('WSS (Pa)')
+plt.title('WSS VS RADIUS')
+
+plt.show()
+
+# elasticity vs WSS plot
+plt.figure()
+plt.plot(fiber_elastic_array, fiber_wss_array)
+
+plt.xlabel('Elasticity (Pa)')
+plt.ylabel('WSS (Pa)')
+plt.title('WSS VS RADIUS')
+
+plt.show()
