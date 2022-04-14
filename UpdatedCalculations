@@ -117,4 +117,4 @@ title('Flow Rate in Systole and Diastole vs WSS');
 xlabel('Flow (L/min)')
 ylabel('WSS (Pa)')
 
-
+%We find from tHe graph that the WSS is highest in the diastolic phase and lowest at the systolic phase. This makes sense as the vessels would have the most blood flowing through them in diastole and the least in systole.
