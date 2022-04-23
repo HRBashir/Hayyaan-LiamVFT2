@@ -1,3 +1,14 @@
+%Investigating physiological parameters that affect wall shear stress
+%Hayyaan Bashir
+%22/04/22
+
+%Parameters used were sourced from the following 
+%https://www.google.co.uk/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwivm4vBmKr3AhX0QkEAHciZAe0QFnoECAsQAw&url=https%3A%2F%2F
+%https://www.sciencedirect.com/topics/nursing-and-health-professions/blood-flow-velocity
+%https://opentextbc.ca/openstaxcollegephysics/chapter/flow-rate-and-its-relation-to-velocity/
+%https://www.ahajournals.org/doi/10.1161/01.CIR.94.12.3263
+%https://courses.lumenlearning.com/suny-ap2/chapter/blood-flow-blood-pressure-and-resistance-no-content/
+
 %% Variables
 u = 0.004;       % dynamic viscosity (Pa.s)
 vm = 0.1;        % blood velocity (m/s)
