@@ -1,0 +1,30 @@
+%Error Calculation
+%Hayyaan Bashir
+%22/04/22
+
+%It was found that
+%Hoop length of the cylinder (circumferential, angular direction, or theta) can be expressed by
+%L0 = 2*pi*R, 
+%thus 
+%DeltaL = {change in perimeter} = 2*pi*DeltaR .
+%New radius is then
+%R_new = R + DeltaR
+%The bigger radius, the smaller the wall shear stress. So you have a DeltaTau, which would be the error. 
+
+%Initial radius
+r=0.012
+%Initial length (Hoop length)
+lo=2*pi*r
+
+%Change in radius (Doubles to 0.024 so change is 0.012)
+deltar=0.012
+%Change in hoop length with respect to change in radius
+deltal=2*pi*deltar
+
+%Initial minus final gives change, so 0.012-0.024=0.012
+deltar=0.012
+renew=r+deltar
+
+
+deltatau=-2*u*vm*y/rnew^2
+deltatau=-2*0.004*0.1*0.006/rnew^2
