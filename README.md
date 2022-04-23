@@ -1,2 +1,5 @@
 # Hayyaan-LiamVFT2
 We were tasked with finding error in the measurement of wall shear stress in blood vessels. Firstly we started out by graphing the various relatinships WSS has with the other physiological parameters such as radius, eleasticity and flow rate. All of these factors serve to affect the overall wall shear stress of the blood vessel. In some cases this can adversely affect the vessel, so proper measurement of these parameters against WSS and finding error are important.
+These files should be examined in the following way:
+Python folder reflects the work that was done on python to investigate the relationship between WSS and other parameters. And also the calculations needed to be carried out to find error
+The remaining files pertain to MATLAB work. InitialWSSCalculations were the calculations carried out for initial investigations into relationships between WSS and other parametes in MATLAB. The error file shows the thinking behind calculating error in the comments with the code to calculate it following.
