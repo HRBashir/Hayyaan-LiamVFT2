@@ -23,8 +23,13 @@ deltal=2*pi*deltar
 
 %Initial minus final gives change, so 0.012-0.024=0.012
 deltar=0.012
-renew=r+deltar
+rnew=r+deltar
 
+u=0.004
+y=0.006
+vm=0.1
 
 deltatau=-2*u*vm*y/rnew^2
 deltatau=-2*0.004*0.1*0.006/rnew^2
+
+%Therefore the error we find is -0.0083Pa
